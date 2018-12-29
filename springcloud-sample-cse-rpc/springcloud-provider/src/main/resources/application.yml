@@ -1,9 +1,9 @@
 spring:
   application:
-    name: helloprovider
+    name: helloprovider-cse
 
 server:
-  port: 7111
+  port: 7311
 
 eureka:
   client:
@@ -24,12 +24,12 @@ service_description:
 servicecomb:
   service:
     registry:
-      address: https://cse.cn-north-1.myhwclouds.com
+      address: https://cse.cn-north-1.myhuaweicloud.com
       instance:
         watch: false
   config:
     client:
-      serverUri: https://cse.cn-north-1.myhwclouds.com
+      serverUri: https://cse.cn-north-1.myhuaweicloud.com
       refreshMode: 1
       refresh_interval: 15000
 # 对外发布的地址，端口号使用server.port
@@ -37,8 +37,8 @@ servicecomb:
     address: 0.0.0.0:${server.port}
 # AK/SK认证信息，需要修改为自己的AK/SK
   credentials:
-    accessKey: BUDCVWSAW04UZVLSZBQR
-    secretKey: BHixEctCJFbTkPUVUUjRDSeVwMAknlAy5oB7idgR
+    accessKey: 2YJOW5CHCSHNKUCCJMPP
+    secretKey: Qk3PGS6ArqXc0schaAYfrUait7BtzKhxpx4ifk48
     akskCustomCipher: default
 # 线下开发，关闭监控数据上报
   monitor:

@@ -32,7 +32,7 @@ import com.netflix.config.DynamicPropertyFactory;
 public class ConsumerHelloService {
   private static org.slf4j.Logger log = LoggerFactory.getLogger(ConsumerHelloService.class);
 
-  @RpcReference(microserviceName="helloprovider", schemaId="hello")
+  @RpcReference(microserviceName="helloprovider-cse", schemaId="hello")
   Hello client;
 
   @Value(value = "${cse.dynamic.property:null}")
@@ -48,7 +48,7 @@ public class ConsumerHelloService {
     log.info("Access /hello rpc, and name is " + name);
     String rpcCall = client.sayHi(name);
     log.info("Access /hello rest, and name is " + name);
-    String restTemplateCall = restTemplate.getForObject("cse://helloprovider/hello/sayhi?name=" + name, String.class);
+    String restTemplateCall = restTemplate.getForObject("cse://helloprovider-cse/hello/sayhi?name=" + name, String.class);
     return rpcCall + "-" + restTemplateCall;
   }
 
